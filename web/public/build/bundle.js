@@ -1464,18 +1464,21 @@ var app = (function () {
     	let h20;
     	let t1;
     	let h30;
+    	let t2;
     	let t3;
     	let hr0;
     	let t4;
     	let h21;
     	let t6;
     	let h31;
+    	let t7;
     	let t8;
     	let hr1;
     	let t9;
     	let h22;
     	let t11;
     	let h32;
+    	let t12_value = /*prize*/ ctx[0].toFixed(2) + "";
     	let t12;
     	let t13;
     	let t14;
@@ -1492,7 +1495,7 @@ var app = (function () {
     			h20.textContent = "Números Sorteados:";
     			t1 = space();
     			h30 = element("h3");
-    			h30.textContent = `${/*getDrawnNums*/ ctx[4]()}`;
+    			t2 = text(/*drawnNums*/ ctx[3]);
     			t3 = space();
     			hr0 = element("hr");
     			t4 = space();
@@ -1500,15 +1503,15 @@ var app = (function () {
     			h21.textContent = "Turno do Sorteio";
     			t6 = space();
     			h31 = element("h3");
-    			h31.textContent = `${/*turn*/ ctx[2]}`;
+    			t7 = text(/*turn*/ ctx[2]);
     			t8 = space();
     			hr1 = element("hr");
     			t9 = space();
     			h22 = element("h2");
-    			h22.textContent = "Valor do Premio";
+    			h22.textContent = "Valor do Prêmio";
     			t11 = space();
     			h32 = element("h3");
-    			t12 = text(/*prize*/ ctx[1]);
+    			t12 = text(t12_value);
     			t13 = text(" reais");
     			t14 = space();
     			hr2 = element("hr");
@@ -1516,24 +1519,24 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "Próximo Turno";
     			attr_dev(h20, "class", "svelte-mnsa5");
-    			add_location(h20, file$1, 50, 4, 992);
+    			add_location(h20, file$1, 76, 4, 1619);
     			attr_dev(h30, "class", "svelte-mnsa5");
-    			add_location(h30, file$1, 51, 4, 1025);
-    			add_location(hr0, file$1, 53, 4, 1058);
+    			add_location(h30, file$1, 77, 4, 1652);
+    			add_location(hr0, file$1, 79, 4, 1680);
     			attr_dev(h21, "class", "svelte-mnsa5");
-    			add_location(h21, file$1, 55, 4, 1070);
+    			add_location(h21, file$1, 81, 4, 1692);
     			attr_dev(h31, "class", "svelte-mnsa5");
-    			add_location(h31, file$1, 56, 4, 1101);
-    			add_location(hr1, file$1, 58, 4, 1124);
+    			add_location(h31, file$1, 82, 4, 1723);
+    			add_location(hr1, file$1, 84, 4, 1746);
     			attr_dev(h22, "class", "svelte-mnsa5");
-    			add_location(h22, file$1, 60, 4, 1136);
+    			add_location(h22, file$1, 86, 4, 1758);
     			attr_dev(h32, "class", "svelte-mnsa5");
-    			add_location(h32, file$1, 61, 4, 1166);
-    			add_location(hr2, file$1, 63, 4, 1196);
+    			add_location(h32, file$1, 87, 4, 1788);
+    			add_location(hr2, file$1, 89, 4, 1829);
     			attr_dev(button, "class", "svelte-mnsa5");
-    			toggle_class(button, "dark", /*darkMode*/ ctx[0]);
-    			add_location(button, file$1, 65, 4, 1208);
-    			add_location(div, file$1, 49, 0, 981);
+    			toggle_class(button, "dark", /*darkMode*/ ctx[1]);
+    			add_location(button, file$1, 91, 4, 1841);
+    			add_location(div, file$1, 75, 0, 1608);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1543,12 +1546,14 @@ var app = (function () {
     			append_dev(div, h20);
     			append_dev(div, t1);
     			append_dev(div, h30);
+    			append_dev(h30, t2);
     			append_dev(div, t3);
     			append_dev(div, hr0);
     			append_dev(div, t4);
     			append_dev(div, h21);
     			append_dev(div, t6);
     			append_dev(div, h31);
+    			append_dev(h31, t7);
     			append_dev(div, t8);
     			append_dev(div, hr1);
     			append_dev(div, t9);
@@ -1568,10 +1573,12 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*prize*/ 2) set_data_dev(t12, /*prize*/ ctx[1]);
+    			if (dirty & /*drawnNums*/ 8) set_data_dev(t2, /*drawnNums*/ ctx[3]);
+    			if (dirty & /*turn*/ 4) set_data_dev(t7, /*turn*/ ctx[2]);
+    			if (dirty & /*prize*/ 1 && t12_value !== (t12_value = /*prize*/ ctx[0].toFixed(2) + "")) set_data_dev(t12, t12_value);
 
-    			if (dirty & /*darkMode*/ 1) {
-    				toggle_class(button, "dark", /*darkMode*/ ctx[0]);
+    			if (dirty & /*darkMode*/ 2) {
+    				toggle_class(button, "dark", /*darkMode*/ ctx[1]);
     			}
     		},
     		i: noop,
@@ -1602,9 +1609,22 @@ var app = (function () {
     	let { nBet } = $$props;
     	let { draw = new Set() } = $$props;
     	let { allBets = new Set() } = $$props;
+    	let dispatch = createEventDispatcher();
     	let turn = 0;
-    	let drawnNums;
     	let winners = [];
+    	let drawnNums;
+
+    	const drawNewNum = () => {
+    		let len1 = draw.size;
+
+    		while (draw.size == len1) {
+    			draw.add(Math.floor(Math.random() * 50) + 1);
+    		}
+    	};
+
+    	const handleHasWinner = () => {
+    		dispatch('winnersList', winners);
+    	};
 
     	const checkForWinner = () => {
     		let hasWinner = true;
@@ -1625,19 +1645,30 @@ var app = (function () {
     			}
     		}
 
-    		console.log(allBets, hasWinner);
-    		return hasWinner;
+    		if (hasWinner == true || turn >= 25) {
+    			handleHasWinner();
+    		}
+
+    		if (hasWinner == false) {
+    			drawNewNum();
+    			$$invalidate(3, drawnNums = getDrawnNums());
+    			$$invalidate(2, turn += 1);
+    			$$invalidate(0, prize *= 1.2);
+    		}
     	};
 
     	const getDrawnNums = () => {
-    		drawnNums = "";
+    		$$invalidate(3, drawnNums = "");
 
     		draw.forEach(i => {
-    			drawnNums += i + " ";
+    			$$invalidate(3, drawnNums += i + " ");
     		});
 
     		return drawnNums;
     	};
+
+    	drawnNums = getDrawnNums();
+    	console.log(allBets);
 
     	$$self.$$.on_mount.push(function () {
     		if (darkMode === undefined && !('darkMode' in $$props || $$self.$$.bound[$$self.$$.props['darkMode']])) {
@@ -1662,35 +1693,40 @@ var app = (function () {
     	const click_handler = () => checkForWinner();
 
     	$$self.$$set = $$props => {
-    		if ('darkMode' in $$props) $$invalidate(0, darkMode = $$props.darkMode);
-    		if ('prize' in $$props) $$invalidate(1, prize = $$props.prize);
+    		if ('darkMode' in $$props) $$invalidate(1, darkMode = $$props.darkMode);
+    		if ('prize' in $$props) $$invalidate(0, prize = $$props.prize);
     		if ('nBet' in $$props) $$invalidate(5, nBet = $$props.nBet);
     		if ('draw' in $$props) $$invalidate(6, draw = $$props.draw);
     		if ('allBets' in $$props) $$invalidate(7, allBets = $$props.allBets);
     	};
 
     	$$self.$capture_state = () => ({
+    		createEventDispatcher,
     		darkMode,
     		prize,
     		nBet,
     		draw,
     		allBets,
+    		dispatch,
     		turn,
-    		drawnNums,
     		winners,
+    		drawnNums,
+    		drawNewNum,
+    		handleHasWinner,
     		checkForWinner,
     		getDrawnNums
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('darkMode' in $$props) $$invalidate(0, darkMode = $$props.darkMode);
-    		if ('prize' in $$props) $$invalidate(1, prize = $$props.prize);
+    		if ('darkMode' in $$props) $$invalidate(1, darkMode = $$props.darkMode);
+    		if ('prize' in $$props) $$invalidate(0, prize = $$props.prize);
     		if ('nBet' in $$props) $$invalidate(5, nBet = $$props.nBet);
     		if ('draw' in $$props) $$invalidate(6, draw = $$props.draw);
     		if ('allBets' in $$props) $$invalidate(7, allBets = $$props.allBets);
+    		if ('dispatch' in $$props) dispatch = $$props.dispatch;
     		if ('turn' in $$props) $$invalidate(2, turn = $$props.turn);
-    		if ('drawnNums' in $$props) drawnNums = $$props.drawnNums;
     		if ('winners' in $$props) winners = $$props.winners;
+    		if ('drawnNums' in $$props) $$invalidate(3, drawnNums = $$props.drawnNums);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -1698,11 +1734,11 @@ var app = (function () {
     	}
 
     	return [
-    		darkMode,
     		prize,
+    		darkMode,
     		turn,
+    		drawnNums,
     		checkForWinner,
-    		getDrawnNums,
     		nBet,
     		draw,
     		allBets,
@@ -1715,8 +1751,8 @@ var app = (function () {
     		super(options);
 
     		init(this, options, instance$1, create_fragment$1, safe_not_equal, {
-    			darkMode: 0,
-    			prize: 1,
+    			darkMode: 1,
+    			prize: 0,
     			nBet: 5,
     			draw: 6,
     			allBets: 7
@@ -1774,7 +1810,7 @@ var app = (function () {
     /* src\App.svelte generated by Svelte v3.59.2 */
     const file = "src\\App.svelte";
 
-    // (62:2) {#if currStage === "menu"}
+    // (67:2) {#if currStage === "menu"}
     function create_if_block_7(ctx) {
     	let box;
     	let current;
@@ -1800,7 +1836,7 @@ var app = (function () {
     			const box_changes = {};
     			if (dirty & /*darkMode*/ 16) box_changes.darkMode = /*darkMode*/ ctx[4];
 
-    			if (dirty & /*$$scope, darkMode*/ 16400) {
+    			if (dirty & /*$$scope, darkMode*/ 32784) {
     				box_changes.$$scope = { dirty, ctx };
     			}
 
@@ -1824,14 +1860,14 @@ var app = (function () {
     		block,
     		id: create_if_block_7.name,
     		type: "if",
-    		source: "(62:2) {#if currStage === \\\"menu\\\"}",
+    		source: "(67:2) {#if currStage === \\\"menu\\\"}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:3) <Box {darkMode}>
+    // (68:3) <Box {darkMode}>
     function create_default_slot_4(ctx) {
     	let menu;
     	let current;
@@ -1872,14 +1908,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(63:3) <Box {darkMode}>",
+    		source: "(68:3) <Box {darkMode}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (68:2) {#if currStage === "bet"}
+    // (73:2) {#if currStage === "bet"}
     function create_if_block_6(ctx) {
     	let box;
     	let current;
@@ -1905,7 +1941,7 @@ var app = (function () {
     			const box_changes = {};
     			if (dirty & /*darkMode*/ 16) box_changes.darkMode = /*darkMode*/ ctx[4];
 
-    			if (dirty & /*$$scope, darkMode, generalId*/ 16401) {
+    			if (dirty & /*$$scope, darkMode, generalId*/ 32785) {
     				box_changes.$$scope = { dirty, ctx };
     			}
 
@@ -1929,14 +1965,14 @@ var app = (function () {
     		block,
     		id: create_if_block_6.name,
     		type: "if",
-    		source: "(68:2) {#if currStage === \\\"bet\\\"}",
+    		source: "(73:2) {#if currStage === \\\"bet\\\"}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (69:3) <Box {darkMode}>
+    // (74:3) <Box {darkMode}>
     function create_default_slot_3(ctx) {
     	let addbet;
     	let current;
@@ -1983,14 +2019,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(69:3) <Box {darkMode}>",
+    		source: "(74:3) <Box {darkMode}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (74:2) {#if currStage === "manual"}
+    // (79:2) {#if currStage === "manual"}
     function create_if_block_5(ctx) {
     	let box;
     	let current;
@@ -2016,7 +2052,7 @@ var app = (function () {
     			const box_changes = {};
     			if (dirty & /*darkMode*/ 16) box_changes.darkMode = /*darkMode*/ ctx[4];
 
-    			if (dirty & /*$$scope, darkMode, generalId*/ 16401) {
+    			if (dirty & /*$$scope, darkMode, generalId*/ 32785) {
     				box_changes.$$scope = { dirty, ctx };
     			}
 
@@ -2040,14 +2076,14 @@ var app = (function () {
     		block,
     		id: create_if_block_5.name,
     		type: "if",
-    		source: "(74:2) {#if currStage === \\\"manual\\\"}",
+    		source: "(79:2) {#if currStage === \\\"manual\\\"}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (75:3) <Box {darkMode}>
+    // (80:3) <Box {darkMode}>
     function create_default_slot_2(ctx) {
     	let manualbet;
     	let current;
@@ -2094,14 +2130,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(75:3) <Box {darkMode}>",
+    		source: "(80:3) <Box {darkMode}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (80:2) {#if currStage === "betDone"}
+    // (85:2) {#if currStage === "betDone"}
     function create_if_block_4(ctx) {
     	let box;
     	let current;
@@ -2127,7 +2163,7 @@ var app = (function () {
     			const box_changes = {};
     			if (dirty & /*darkMode*/ 16) box_changes.darkMode = /*darkMode*/ ctx[4];
 
-    			if (dirty & /*$$scope, darkMode, currStage*/ 16408) {
+    			if (dirty & /*$$scope, darkMode, currStage*/ 32792) {
     				box_changes.$$scope = { dirty, ctx };
     			}
 
@@ -2151,14 +2187,14 @@ var app = (function () {
     		block,
     		id: create_if_block_4.name,
     		type: "if",
-    		source: "(80:2) {#if currStage === \\\"betDone\\\"}",
+    		source: "(85:2) {#if currStage === \\\"betDone\\\"}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (81:3) <Box {darkMode}>
+    // (86:3) <Box {darkMode}>
     function create_default_slot_1(ctx) {
     	let h1;
     	let t1;
@@ -2173,10 +2209,10 @@ var app = (function () {
     			t1 = space();
     			button = element("button");
     			button.textContent = "Nova aposta";
-    			add_location(h1, file, 81, 4, 1459);
+    			add_location(h1, file, 86, 4, 1533);
     			attr_dev(button, "class", "svelte-jtoyal");
     			toggle_class(button, "dark", /*darkMode*/ ctx[4]);
-    			add_location(button, file, 82, 4, 1490);
+    			add_location(button, file, 87, 4, 1564);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -2184,7 +2220,7 @@ var app = (function () {
     			insert_dev(target, button, anchor);
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*click_handler*/ ctx[10], false, false, false, false);
+    				dispose = listen_dev(button, "click", /*click_handler*/ ctx[11], false, false, false, false);
     				mounted = true;
     			}
     		},
@@ -2206,14 +2242,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(81:3) <Box {darkMode}>",
+    		source: "(86:3) <Box {darkMode}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (87:2) {#if currStage === "draw"}
+    // (92:2) {#if currStage === "draw"}
     function create_if_block_3(ctx) {
     	let box;
     	let current;
@@ -2239,7 +2275,7 @@ var app = (function () {
     			const box_changes = {};
     			if (dirty & /*darkMode*/ 16) box_changes.darkMode = /*darkMode*/ ctx[4];
 
-    			if (dirty & /*$$scope, darkMode, allBets, nBet*/ 16406) {
+    			if (dirty & /*$$scope, darkMode, allBets, nBet*/ 32790) {
     				box_changes.$$scope = { dirty, ctx };
     			}
 
@@ -2263,14 +2299,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(87:2) {#if currStage === \\\"draw\\\"}",
+    		source: "(92:2) {#if currStage === \\\"draw\\\"}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (88:3) <Box {darkMode}>
+    // (93:3) <Box {darkMode}>
     function create_default_slot(ctx) {
     	let startdraw;
     	let current;
@@ -2285,6 +2321,8 @@ var app = (function () {
     			},
     			$$inline: true
     		});
+
+    	startdraw.$on("winnersList", /*handleWinners*/ ctx[10]);
 
     	const block = {
     		c: function create() {
@@ -2319,14 +2357,14 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(88:3) <Box {darkMode}>",
+    		source: "(93:3) <Box {darkMode}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (96:2) {#if currStage === "menu"}
+    // (101:2) {#if currStage === "menu"}
     function create_if_block_2(ctx) {
     	let button;
     	let mounted;
@@ -2338,13 +2376,13 @@ var app = (function () {
     			button.textContent = "Iniciar apostas";
     			attr_dev(button, "class", "svelte-jtoyal");
     			toggle_class(button, "dark", /*darkMode*/ ctx[4]);
-    			add_location(button, file, 96, 3, 1903);
+    			add_location(button, file, 101, 3, 1997);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*click_handler_1*/ ctx[11], false, false, false, false);
+    				dispose = listen_dev(button, "click", /*click_handler_1*/ ctx[12], false, false, false, false);
     				mounted = true;
     			}
     		},
@@ -2364,14 +2402,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(96:2) {#if currStage === \\\"menu\\\"}",
+    		source: "(101:2) {#if currStage === \\\"menu\\\"}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (99:2) {#if currStage === "bet"}
+    // (104:2) {#if currStage === "bet"}
     function create_if_block_1(ctx) {
     	let button;
     	let mounted;
@@ -2383,13 +2421,13 @@ var app = (function () {
     			button.textContent = "Voltar ao menu";
     			attr_dev(button, "class", "svelte-jtoyal");
     			toggle_class(button, "dark", /*darkMode*/ ctx[4]);
-    			add_location(button, file, 99, 3, 2030);
+    			add_location(button, file, 104, 3, 2124);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*click_handler_2*/ ctx[12], false, false, false, false);
+    				dispose = listen_dev(button, "click", /*click_handler_2*/ ctx[13], false, false, false, false);
     				mounted = true;
     			}
     		},
@@ -2409,14 +2447,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(99:2) {#if currStage === \\\"bet\\\"}",
+    		source: "(104:2) {#if currStage === \\\"bet\\\"}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (102:2) {#if nBet > 0 && currStage !== "draw"}
+    // (107:2) {#if nBet > 0 && currStage !== "draw"}
     function create_if_block(ctx) {
     	let button;
     	let mounted;
@@ -2428,13 +2466,13 @@ var app = (function () {
     			button.textContent = "Iniciar Sorteio";
     			attr_dev(button, "class", "svelte-jtoyal");
     			toggle_class(button, "dark", /*darkMode*/ ctx[4]);
-    			add_location(button, file, 102, 3, 2170);
+    			add_location(button, file, 107, 3, 2264);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*click_handler_3*/ ctx[13], { once: true }, false, false, false);
+    				dispose = listen_dev(button, "click", /*click_handler_3*/ ctx[14], { once: true }, false, false, false);
     				mounted = true;
     			}
     		},
@@ -2454,7 +2492,7 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(102:2) {#if nBet > 0 && currStage !== \\\"draw\\\"}",
+    		source: "(107:2) {#if nBet > 0 && currStage !== \\\"draw\\\"}",
     		ctx
     	});
 
@@ -2513,14 +2551,14 @@ var app = (function () {
     			t9 = space();
     			if (if_block7) if_block7.c();
     			attr_dev(div0, "class", "mainDiv svelte-jtoyal");
-    			add_location(div0, file, 60, 1, 1032);
+    			add_location(div0, file, 65, 1, 1106);
     			attr_dev(button, "class", "darkButton svelte-jtoyal");
     			toggle_class(button, "dark", /*darkMode*/ ctx[4]);
-    			add_location(button, file, 94, 2, 1765);
-    			add_location(div1, file, 93, 1, 1757);
+    			add_location(button, file, 99, 2, 1859);
+    			add_location(div1, file, 98, 1, 1851);
     			attr_dev(main, "class", "backGround svelte-jtoyal");
     			toggle_class(main, "dark", /*darkMode*/ ctx[4]);
-    			add_location(main, file, 59, 0, 983);
+    			add_location(main, file, 64, 0, 1057);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2804,6 +2842,11 @@ var app = (function () {
     		$$invalidate(3, currStage = "betDone");
     	};
 
+    	const handleWinners = e => {
+    		$$invalidate(3, currStage = "winners");
+    		$$invalidate(2, nBet = 0);
+    	};
+
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -2841,7 +2884,8 @@ var app = (function () {
     		newRandomBet,
     		handleDarkMode,
     		addBet,
-    		manualBet
+    		manualBet,
+    		handleWinners
     	});
 
     	$$self.$inject_state = $$props => {
@@ -2868,6 +2912,7 @@ var app = (function () {
     		handleDarkMode,
     		addBet,
     		manualBet,
+    		handleWinners,
     		click_handler,
     		click_handler_1,
     		click_handler_2,

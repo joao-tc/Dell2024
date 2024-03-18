@@ -55,6 +55,11 @@
 
 	};
 
+	const handleWinners = (e) => {
+		currStage = "winners";
+		nBet = 0;
+	};
+
 </script>
 
 <main class="backGround" class:dark={darkMode}>
@@ -86,7 +91,7 @@
 
 		{#if currStage === "draw"}
 			<Box {darkMode}>
-				<StartDraw {darkMode} {prize} {allBets} {nBet} draw={newRandomBet()}></StartDraw>
+				<StartDraw {darkMode} {prize} {allBets} {nBet} draw={newRandomBet()} on:winnersList={handleWinners}/>
 			</Box>
 		{/if}
 	</div>

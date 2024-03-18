@@ -1,13 +1,28 @@
 <script>
+    import { createEventDispatcher } from "svelte";
     export let darkMode;
     export let prize;
     export let nBet;
     export let draw = new Set();
     export let allBets = new Set();
 
+    let dispatch = createEventDispatcher();
+
     let turn = 0;
-    let drawnNums;
     let winners = [];
+    let drawnNums;
+    
+    const drawNewNum = () => {
+        let len1 = draw.size
+        
+        while(draw.size == len1) {
+            draw.add(Math.floor(Math.random() * 50) + 1)
+        }
+    };
+
+    const handleHasWinner = () => {
+        dispatch('winnersList', winners)
+    };
 
     const checkForWinner = () => {
         let hasWinner = true;
@@ -30,9 +45,16 @@
             }
         }
 
-        console.log(allBets, hasWinner);
+        if(hasWinner == true || turn >= 25) {
+            handleHasWinner();
+        }
 
-        return hasWinner;
+        if(hasWinner == false) {
+            drawNewNum();
+            drawnNums = getDrawnNums();
+            turn+=1;
+            prize *= 1.2;
+        }
     };
 
     const getDrawnNums = () => {
@@ -45,11 +67,15 @@
         return drawnNums;
     };
 
+    drawnNums = getDrawnNums();
+
+    console.log(allBets);
+
 </script>
 
 <div>
     <h2>Números Sorteados:</h2>
-    <h3>{getDrawnNums()}</h3>
+    <h3>{drawnNums}</h3>
 
     <hr>
 
@@ -58,8 +84,8 @@
 
     <hr>
 
-    <h2>Valor do Premio</h2>
-    <h3>{prize} reais</h3>
+    <h2>Valor do Prêmio</h2>
+    <h3>{prize.toFixed(2)} reais</h3>
 
     <hr>
 
