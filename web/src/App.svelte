@@ -1,15 +1,19 @@
 <script>
-	import Box from './Box.svelte'
-	import AddBet from './AddBet.svelte';
-	import ManualBet from './ManualBet.svelte';
-	import Menu from './Menu.svelte';
+	import Box from './Component/Box.svelte'
+	import AddBet from './Stages/AddBet.svelte';
+	import ManualBet from './Stages/ManualBet.svelte';
+	import Menu from './Stages/Menu.svelte';
+	import StartDraw from './Stages/StartDraw.svelte';
 
 	let generalId = 1000;
-	let allBets = {};
+	let allBets = new Set();
+	let nBet = 0;
 
-	let currStage = "menu";
+	let prize = 2535;
 
-	let darkMode = false;
+	let currStage = "bet";
+
+	let darkMode = true;
 
 
 	const newRandomBet = () => {
@@ -32,13 +36,13 @@
 			e.detail.bet = newRandomBet();
 			currStage = "betDone";
 			generalId++;
-
-			console.log(allBets);
+			nBet++;
 		}
 
 		else {
 			currStage = "manual";
 		}
+		
 	}
 
 	const manualBet = (e) => {
@@ -46,9 +50,9 @@
 
 		aux.bet = e.detail.currBet;
 		generalId++;
+		nBet++;
 		currStage = "betDone";
 
-		console.log(allBets);
 	};
 
 </script>
@@ -79,6 +83,12 @@
 				<button class:dark={darkMode} on:click={()=>{currStage="bet"}}>Nova aposta</button>
 			</Box>
 		{/if}
+
+		{#if currStage === "draw"}
+			<Box {darkMode}>
+				<StartDraw {darkMode} {prize} {allBets} {nBet} draw={newRandomBet()}></StartDraw>
+			</Box>
+		{/if}
 	</div>
 	
 	<div>
@@ -88,6 +98,9 @@
 		{/if}
 		{#if currStage === "bet"}
 			<button on:click={()=>{currStage="menu"}} class:dark={darkMode}>Voltar ao menu</button>
+		{/if}
+		{#if nBet > 0 && currStage !== "draw"}
+			<button on:click|once={()=>{currStage="draw"}} class:dark={darkMode}>Iniciar Sorteio</button>
 		{/if}
 	</div>
 
