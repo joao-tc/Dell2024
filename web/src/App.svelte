@@ -153,9 +153,12 @@
 <style>
 
 	.mainDiv {
-		margin-top: -20px;
+		margin: -1em auto;
+		margin-top: -5%;
 		width: 100%;
 		height: 75%;
+
+		display: block;
 	}
 
 	.backGround {
@@ -167,7 +170,8 @@
 	}
 
 	button {
-		margin-left: 2em;
+		border-radius: 10px;
+		margin: 5px 10px;
 	}
 
 	.dark {
@@ -176,7 +180,8 @@
 	}
 
 	.buttons {
-		display: inline-block;
+		margin: auto;
+		text-align: center;
 	}
 
 </style>

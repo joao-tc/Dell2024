@@ -37,6 +37,18 @@
 
 <style>
 
+    button {
+        border-radius: 10px;
+    }
+
+    input {
+        border-radius: 5px;
+    }
+
+    select {
+        border-radius: 5px;
+    }
+
     .dark {
         background: #1e1e1e;
         color: white;

@@ -732,12 +732,12 @@ var app = (function () {
     			t9 = space();
     			button = element("button");
     			button.textContent = "Confirmar dados";
-    			attr_dev(h2, "class", "svelte-185ai4");
+    			attr_dev(h2, "class", "svelte-1cv8mqf");
     			add_location(h2, file$7, 24, 4, 493);
     			attr_dev(input0, "type", "text");
     			attr_dev(input0, "placeholder", "Nome");
     			input0.required = true;
-    			attr_dev(input0, "class", "svelte-185ai4");
+    			attr_dev(input0, "class", "svelte-1cv8mqf");
     			toggle_class(input0, "dark", /*darkMode*/ ctx[0]);
     			add_location(input0, file$7, 25, 4, 519);
     			add_location(br0, file$7, 25, 91, 606);
@@ -746,7 +746,7 @@ var app = (function () {
     			attr_dev(input1, "minlength", "11");
     			attr_dev(input1, "placeholder", "CPF");
     			input1.required = true;
-    			attr_dev(input1, "class", "svelte-185ai4");
+    			attr_dev(input1, "class", "svelte-1cv8mqf");
     			toggle_class(input1, "dark", /*darkMode*/ ctx[0]);
     			add_location(input1, file$7, 26, 4, 616);
     			add_location(br1, file$7, 26, 122, 734);
@@ -757,13 +757,13 @@ var app = (function () {
     			option1.__value = "manual";
     			option1.value = option1.__value;
     			add_location(option1, file$7, 31, 8, 960);
-    			attr_dev(select, "class", "svelte-185ai4");
+    			attr_dev(select, "class", "svelte-1cv8mqf");
     			if (/*betType*/ ctx[3] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[8].call(select));
     			toggle_class(select, "dark", /*darkMode*/ ctx[0]);
     			add_location(select, file$7, 29, 4, 842);
-    			attr_dev(hr, "class", "svelte-185ai4");
+    			attr_dev(hr, "class", "svelte-1cv8mqf");
     			add_location(hr, file$7, 33, 4, 1026);
-    			attr_dev(button, "class", "svelte-185ai4");
+    			attr_dev(button, "class", "svelte-1cv8mqf");
     			toggle_class(button, "dark", /*darkMode*/ ctx[0]);
     			add_location(button, file$7, 34, 4, 1036);
     			add_location(form, file$7, 23, 0, 441);
@@ -2034,9 +2034,10 @@ var app = (function () {
     			attr_dev(input, "max", "100");
     			attr_dev(input, "pattern", "[0-9]");
     			input.required = true;
-    			attr_dev(input, "class", "svelte-wyz5qo");
+    			attr_dev(input, "class", "svelte-1vsu8ry");
     			toggle_class(input, "dark", /*darkMode*/ ctx[0]);
     			add_location(input, file$2, 18, 8, 372);
+    			attr_dev(button, "class", "svelte-1vsu8ry");
     			add_location(button, file$2, 19, 8, 489);
     			add_location(form, file$2, 16, 4, 269);
     			add_location(div, file$2, 15, 0, 258);
@@ -2835,10 +2836,10 @@ var app = (function () {
     			t1 = space();
     			button = element("button");
     			button.textContent = "Nova aposta";
-    			add_location(h1, file, 117, 4, 2165);
-    			attr_dev(button, "class", "svelte-17iw2rs");
+    			add_location(h1, file, 117, 4, 2166);
+    			attr_dev(button, "class", "svelte-cfsnx6");
     			toggle_class(button, "dark", /*darkMode*/ ctx[6]);
-    			add_location(button, file, 118, 4, 2196);
+    			add_location(button, file, 118, 4, 2197);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -3111,9 +3112,9 @@ var app = (function () {
     		c: function create() {
     			button = element("button");
     			button.textContent = "Iniciar apostas";
-    			attr_dev(button, "class", "svelte-17iw2rs");
+    			attr_dev(button, "class", "svelte-cfsnx6");
     			toggle_class(button, "dark", /*darkMode*/ ctx[6]);
-    			add_location(button, file, 139, 3, 2746);
+    			add_location(button, file, 139, 3, 2747);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -3161,12 +3162,12 @@ var app = (function () {
     			t1 = space();
     			button1 = element("button");
     			button1.textContent = "Adicionar participantes fantasma";
-    			attr_dev(button0, "class", "svelte-17iw2rs");
+    			attr_dev(button0, "class", "svelte-cfsnx6");
     			toggle_class(button0, "dark", /*darkMode*/ ctx[6]);
-    			add_location(button0, file, 142, 3, 2873);
-    			attr_dev(button1, "class", "svelte-17iw2rs");
+    			add_location(button0, file, 142, 3, 2874);
+    			attr_dev(button1, "class", "svelte-cfsnx6");
     			toggle_class(button1, "dark", /*darkMode*/ ctx[6]);
-    			add_location(button1, file, 143, 3, 2964);
+    			add_location(button1, file, 143, 3, 2965);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button0, anchor);
@@ -3221,9 +3222,9 @@ var app = (function () {
     		c: function create() {
     			button = element("button");
     			button.textContent = "Iniciar Sorteio";
-    			attr_dev(button, "class", "svelte-17iw2rs");
+    			attr_dev(button, "class", "svelte-cfsnx6");
     			toggle_class(button, "dark", /*darkMode*/ ctx[6]);
-    			add_location(button, file, 146, 3, 3123);
+    			add_location(button, file, 146, 3, 3124);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -3315,16 +3316,16 @@ var app = (function () {
     			if (if_block8) if_block8.c();
     			t11 = space();
     			if (if_block9) if_block9.c();
-    			attr_dev(div0, "class", "mainDiv svelte-17iw2rs");
-    			add_location(div0, file, 96, 1, 1738);
-    			attr_dev(button, "class", "svelte-17iw2rs");
+    			attr_dev(div0, "class", "mainDiv svelte-cfsnx6");
+    			add_location(div0, file, 96, 1, 1739);
+    			attr_dev(button, "class", "svelte-cfsnx6");
     			toggle_class(button, "dark", /*darkMode*/ ctx[6]);
-    			add_location(button, file, 137, 2, 2627);
-    			attr_dev(div1, "class", "buttons svelte-17iw2rs");
-    			add_location(div1, file, 136, 1, 2603);
-    			attr_dev(main, "class", "backGround svelte-17iw2rs");
+    			add_location(button, file, 137, 2, 2628);
+    			attr_dev(div1, "class", "buttons svelte-cfsnx6");
+    			add_location(div1, file, 136, 1, 2604);
+    			attr_dev(main, "class", "backGround svelte-cfsnx6");
     			toggle_class(main, "dark", /*darkMode*/ ctx[6]);
-    			add_location(main, file, 90, 0, 1584);
+    			add_location(main, file, 90, 0, 1585);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3632,7 +3633,7 @@ var app = (function () {
     	let nBet = 0;
     	let prize = 2535;
     	let winners = [];
-    	let currStage = "bet";
+    	let currStage = "menu";
     	let darkMode = true;
 
     	const newRandomBet = () => {

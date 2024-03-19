@@ -24,6 +24,10 @@
 
 <style>
 
+    button {
+            margin-left: 1em;
+        }
+
     .dark {
         background: #1e1e1e;
         color: white;

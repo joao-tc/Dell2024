@@ -1,9 +1,9 @@
 .box.svelte-nc6dok{padding:20px;border-radius:15px;max-width:300px;margin:10% auto;text-align:center;background:white;color:black}.dark.svelte-nc6dok{background:black;color:white}
-.dark.svelte-185ai4{background:#1e1e1e;color:white;border-color:gray}hr.svelte-185ai4{margin:10px auto;margin-bottom:20px}h2.svelte-185ai4{margin-top:0}select.svelte-185ai4{margin:10px auto}
+button.svelte-1cv8mqf{border-radius:10px}input.svelte-1cv8mqf{border-radius:5px}select.svelte-1cv8mqf{border-radius:5px}.dark.svelte-1cv8mqf{background:#1e1e1e;color:white;border-color:gray}hr.svelte-1cv8mqf{margin:10px auto;margin-bottom:20px}h2.svelte-1cv8mqf{margin-top:0}select.svelte-1cv8mqf{margin:10px auto}
 .grid.svelte-14lmu5h{display:grid;grid-template-columns:repeat(5, 1fr)}.dark.svelte-14lmu5h{background:#1e1e1e;color:white}.num.svelte-14lmu5h{width:3em}
 h1.svelte-13wl3t9{margin:5px 0}textarea.svelte-13wl3t9{resize:none;background:white;border-color:white}.dark.svelte-13wl3t9{background:black;color:white;border-color:black}.box.svelte-13wl3t9{width:300px}.text.svelte-13wl3t9{text-align:left}
 .dark.svelte-mnsa5{background:#1e1e1e;color:white}button.svelte-mnsa5{margin-top:10px}h2.svelte-mnsa5{margin-bottom:0}h3.svelte-mnsa5{margin-top:0}
 .backdrop.svelte-h9phcs{width:100%;height:100%;position:fixed;background:rgba(0, 0, 0, 0.8)}.modal.svelte-h9phcs{padding:20px;border-radius:15px;max-width:300px;margin:10% auto;text-align:center;background:white;color:black}.dark.svelte-h9phcs{background:black;color:white}.darkBD.svelte-h9phcs{background:rgba(50, 50, 50, 0.8)}
-.dark.svelte-wyz5qo{background:#1e1e1e;color:white}
+button.svelte-1vsu8ry{margin-left:1em}.dark.svelte-1vsu8ry{background:#1e1e1e;color:white}
 .dark.svelte-v3dv70{background:black;color:white}
-.mainDiv.svelte-17iw2rs{margin-top:-20px;width:100%;height:75%}.backGround.svelte-17iw2rs{width:100%;height:100%;position:fixed;background:lightgrey;color:gray}button.svelte-17iw2rs{margin-left:2em}.dark.svelte-17iw2rs{background:#1e1e1e;color:white}.buttons.svelte-17iw2rs{display:inline-block}
+.mainDiv.svelte-cfsnx6{margin:-1em auto;margin-top:-5%;width:100%;height:75%;display:block}.backGround.svelte-cfsnx6{width:100%;height:100%;position:fixed;background:lightgrey;color:gray}button.svelte-cfsnx6{border-radius:10px;margin:5px 10px}.dark.svelte-cfsnx6{background:#1e1e1e;color:white}.buttons.svelte-cfsnx6{margin:auto;text-align:center}
