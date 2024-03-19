@@ -17,16 +17,29 @@
 
 	let prize = 2535;
 	let winners = [];
+	let turn;
 
 	let currStage = "menu";
 
 	let darkMode = true;
 
+	const createMostBetted = () => {
+		let aux = []
+
+		for(let i = 0; i < 50; i++) {aux.push(0);}
+
+		return aux;
+	}
+
+	let mostBetted = createMostBetted();
+
 	const newRandomBet = () => {
 		let currBet = new Set();
 
 		while(currBet.size < 5)
-			currBet.add(Math.floor(Math.random()*50) + 1)
+			var x = Math.floor(Math.random()*50) + 1;
+			currBet.add(x);
+			mostBetted[x-1] += 1;
 
 		return currBet;
 	}
@@ -59,12 +72,23 @@
 		nBet++;
 		currStage = "betDone";
 
+		const iter = e.detail.values();
+
+		for(let i = 0; i < 5; i++) {
+			mostBetted[iter.values().next-1] += 1;
+		}
+
 	};
 
 	const handleWinners = (e) => {
 		winners = e.detail;
 		currStage = "winners";
 		nBet = 0;
+	};
+
+	const handleWinnersInfo = (e) => {
+		turn = e.detail.turn;
+		prize = e.detail.prize;
 	};
 
 	const addGhost = (n) => {
@@ -84,6 +108,26 @@
 			nBet++;
 		}
 	}
+
+	const getMostBettedNum = () => {
+		let mostBettedTups = [];
+		for(let i = 0; i < 5; i++) {
+			let highest = [-1, -1];
+			for(let j = 0; j < 50; j++) {
+				if(mostBetted[j] > highest[1]) {
+					highest[1] = mostBetted[j];
+					highest[0] = j+1;
+				}
+			}
+			let best = (highest[0], highest[1]);
+
+			mostBetted[best[0]-1] = -1;
+
+			mostBettedTups.push(best);
+		}
+
+		return mostBettedTups;
+	};
 
 </script>
 
@@ -129,13 +173,14 @@
 
 		{#if currStage === "draw"}
 			<Box {darkMode}>
-				<StartDraw {darkMode} {prize} {allBets} {nBet} draw={newRandomBet()} on:winnersList={handleWinners}/>
+				<StartDraw {darkMode} {prize} {allBets} {nBet} draw={newRandomBet()} on:winnersList={handleWinners} on:winnersInfo={handleWinnersInfo}/>
 			</Box>
 		{/if}
 
 		{#if currStage === "winners"}
 			<Box {darkMode}>
-				<Winners {darkMode} {winners} {allBets} {prize} />
+				<Winners {darkMode} {winners} {allBets} {prize} {turn} />
+				<!-- {getMostBettedNum} -->
 			</Box>
 		{/if}
 		
