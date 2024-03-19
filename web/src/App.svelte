@@ -17,7 +17,7 @@
 	let prize = 2535;
 	let winners = [];
 
-	let currStage = "bet";
+	let currStage = "menu";
 
 	let darkMode = true;
 
