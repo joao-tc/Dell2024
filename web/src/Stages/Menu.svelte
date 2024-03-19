@@ -11,7 +11,7 @@
     <hr>
 
     <div class="text">
-        <textarea cols="30" rows="10" class:dark={darkMode} disabled>
+        <textarea cols="37" rows="10" class:dark={darkMode} disabled>
 {text}
         </textarea>
     </div>
