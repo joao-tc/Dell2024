@@ -11,8 +11,20 @@
             let currBet = allBets[winners[i]];
             aux+= "ID da aposta: " + currBet.id;
             aux+= "\nNome do participante: " + currBet.name;
-            aux+= "\nNúmeros apostados: " + currBet.bet + "\n";
+            aux+= "\nNúmeros apostados: " + setToString(currBet.bet) + "\n";
         }
+
+        return aux;
+    };
+
+    const setToString = (e) => {
+        let aux = ""
+
+        console.log(e);
+
+        e.forEach(i => {
+            aux += i + " "
+        });
 
         return aux;
     };
@@ -27,10 +39,9 @@
         <h1>Vencedores:</h1>
     {/if}
         <hr>
-        <textarea cols="30" rows="10" class:dark={darkMode}>
+        <textarea cols="34" rows="10" class:dark={darkMode} disabled>
 {getWinnersText()}            
         </textarea>
-        <!-- <h4></h4> -->
         <hr>
         <h2>Valor final do prêmio:</h2>
         <h3>{prize}</h3>
