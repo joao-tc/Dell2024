@@ -143,7 +143,7 @@
 	
 	<div class="buttons">
 		<button on:click={handleDarkMode} class:dark={darkMode}>Dark Mode: {darkMode}</button>
-		{#if currStage === "menu"}
+		{#if currStage === "menu" || currStage === "list"}
 			<button on:click={()=>{currStage="bet"}} class:dark={darkMode}>Iniciar apostas</button>
 		{/if}
 
@@ -152,10 +152,10 @@
 			<button on:click|once={()=>showModal=true} class:dark={darkMode}>Adicionar participantes fantasma</button>
 		{/if}
 
-		{#if nBet > 0 && currStage !== "list"}
+		{#if nBet > 0 && currStage !== "list" && currStage !== "draw"}
 			<button on:click={()=>{currStage="list"}} class:dark={darkMode}>Ver apostas</button>
 		{/if}
-		
+
 		{#if nBet > 0 && currStage !== "draw"}
 			<button on:click|once={()=>{currStage="draw"}} class:dark={darkMode}>Iniciar Sorteio</button>
 		{/if}
