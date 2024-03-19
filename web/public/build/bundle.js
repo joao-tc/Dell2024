@@ -1342,21 +1342,21 @@ var app = (function () {
     			t4 = space();
     			div0 = element("div");
     			textarea = element("textarea");
-    			attr_dev(h1, "class", "svelte-13wl3t9");
-    			add_location(h1, file$5, 7, 4, 255);
-    			add_location(h2, file$5, 8, 4, 288);
-    			add_location(hr, file$5, 10, 4, 319);
+    			attr_dev(h1, "class", "svelte-1qptye7");
+    			add_location(h1, file$5, 7, 4, 298);
+    			add_location(h2, file$5, 8, 4, 331);
+    			add_location(hr, file$5, 10, 4, 362);
     			attr_dev(textarea, "cols", "37");
     			attr_dev(textarea, "rows", "10");
     			textarea.disabled = true;
     			textarea.value = "" + /*text*/ ctx[1] + "\r\n        ";
-    			attr_dev(textarea, "class", "svelte-13wl3t9");
+    			attr_dev(textarea, "class", "svelte-1qptye7");
     			toggle_class(textarea, "dark", /*darkMode*/ ctx[0]);
-    			add_location(textarea, file$5, 13, 8, 359);
-    			attr_dev(div0, "class", "text svelte-13wl3t9");
-    			add_location(div0, file$5, 12, 4, 331);
-    			attr_dev(div1, "class", "box svelte-13wl3t9");
-    			add_location(div1, file$5, 6, 0, 232);
+    			add_location(textarea, file$5, 13, 8, 402);
+    			attr_dev(div0, "class", "text svelte-1qptye7");
+    			add_location(div0, file$5, 12, 4, 374);
+    			attr_dev(div1, "class", "box svelte-1qptye7");
+    			add_location(div1, file$5, 6, 0, 275);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1399,7 +1399,7 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Menu', slots, []);
     	let { darkMode } = $$props;
-    	let text = "Etapa1: Apostas\nOs participantes podem fazer quantas apostas quiserem;\nOs números podem ser escolhidos manualmente ou de forma aleatória.\n\nEtapa 2: Apuração\n";
+    	let text = "Etapa1: Apostas\nAs apostas são estritamente de 5 números;\nOs números podem ser escolhidos manualmente ou de forma aleatória;\nOs participantes podem fazer quantas apostas quiserem.\n\nEtapa 2: Apuração\n";
 
     	$$self.$$.on_mount.push(function () {
     		if (darkMode === undefined && !('darkMode' in $$props || $$self.$$.bound[$$self.$$.props['darkMode']])) {
@@ -1515,25 +1515,25 @@ var app = (function () {
     			t15 = space();
     			button = element("button");
     			button.textContent = "Próximo Turno";
-    			attr_dev(h20, "class", "svelte-mnsa5");
-    			add_location(h20, file$4, 86, 4, 1972);
-    			attr_dev(h30, "class", "svelte-mnsa5");
-    			add_location(h30, file$4, 87, 4, 2005);
-    			add_location(hr0, file$4, 89, 4, 2033);
-    			attr_dev(h21, "class", "svelte-mnsa5");
-    			add_location(h21, file$4, 91, 4, 2045);
-    			attr_dev(h31, "class", "svelte-mnsa5");
-    			add_location(h31, file$4, 92, 4, 2076);
-    			add_location(hr1, file$4, 94, 4, 2099);
-    			attr_dev(h22, "class", "svelte-mnsa5");
-    			add_location(h22, file$4, 96, 4, 2111);
-    			attr_dev(h32, "class", "svelte-mnsa5");
-    			add_location(h32, file$4, 97, 4, 2141);
-    			add_location(hr2, file$4, 99, 4, 2182);
-    			attr_dev(button, "class", "svelte-mnsa5");
+    			attr_dev(h20, "class", "svelte-1qa9nbq");
+    			add_location(h20, file$4, 86, 4, 1979);
+    			attr_dev(h30, "class", "svelte-1qa9nbq");
+    			add_location(h30, file$4, 87, 4, 2012);
+    			add_location(hr0, file$4, 89, 4, 2040);
+    			attr_dev(h21, "class", "svelte-1qa9nbq");
+    			add_location(h21, file$4, 91, 4, 2052);
+    			attr_dev(h31, "class", "svelte-1qa9nbq");
+    			add_location(h31, file$4, 92, 4, 2083);
+    			add_location(hr1, file$4, 94, 4, 2106);
+    			attr_dev(h22, "class", "svelte-1qa9nbq");
+    			add_location(h22, file$4, 96, 4, 2118);
+    			attr_dev(h32, "class", "svelte-1qa9nbq");
+    			add_location(h32, file$4, 97, 4, 2148);
+    			add_location(hr2, file$4, 99, 4, 2189);
+    			attr_dev(button, "class", "svelte-1qa9nbq");
     			toggle_class(button, "dark", /*darkMode*/ ctx[1]);
-    			add_location(button, file$4, 101, 4, 2194);
-    			add_location(div, file$4, 85, 0, 1961);
+    			add_location(button, file$4, 101, 4, 2201);
+    			add_location(div, file$4, 85, 0, 1968);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1660,7 +1660,7 @@ var app = (function () {
     			drawNewNum();
     			$$invalidate(3, drawnNums = getDrawnNums());
     			$$invalidate(2, turn += 1);
-    			$$invalidate(0, prize *= 1.2);
+    			$$invalidate(0, prize = prize * 1.2);
     		}
     	};
 
@@ -1818,7 +1818,7 @@ var app = (function () {
     const file$3 = "src\\Component\\Modal.svelte";
 
     // (6:0) {#if showModal}
-    function create_if_block$1(ctx) {
+    function create_if_block$2(ctx) {
     	let div1;
     	let div0;
     	let current;
@@ -1888,7 +1888,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block$1.name,
+    		id: create_if_block$2.name,
     		type: "if",
     		source: "(6:0) {#if showModal}",
     		ctx
@@ -1900,7 +1900,7 @@ var app = (function () {
     function create_fragment$3(ctx) {
     	let if_block_anchor;
     	let current;
-    	let if_block = /*showModal*/ ctx[1] && create_if_block$1(ctx);
+    	let if_block = /*showModal*/ ctx[1] && create_if_block$2(ctx);
 
     	const block = {
     		c: function create() {
@@ -2030,14 +2030,14 @@ var app = (function () {
     			button.textContent = "Confirmar";
     			add_location(h3, file$2, 17, 8, 325);
     			attr_dev(input, "type", "number");
-    			attr_dev(input, "min", "0");
+    			attr_dev(input, "min", "1");
     			attr_dev(input, "max", "100");
     			attr_dev(input, "pattern", "[0-9]");
     			input.required = true;
-    			attr_dev(input, "class", "svelte-1vsu8ry");
+    			attr_dev(input, "class", "svelte-kjpoty");
     			toggle_class(input, "dark", /*darkMode*/ ctx[0]);
     			add_location(input, file$2, 18, 8, 372);
-    			attr_dev(button, "class", "svelte-1vsu8ry");
+    			attr_dev(button, "class", "svelte-kjpoty");
     			add_location(button, file$2, 19, 8, 489);
     			add_location(form, file$2, 16, 4, 269);
     			add_location(div, file$2, 15, 0, 258);
@@ -2172,43 +2172,232 @@ var app = (function () {
 
     const file$1 = "src\\Stages\\Winners.svelte";
 
+    // (37:4) {:else}
+    function create_else_block_1(ctx) {
+    	let h1;
+
+    	const block = {
+    		c: function create() {
+    			h1 = element("h1");
+    			h1.textContent = "Não houveram vencedores";
+    			add_location(h1, file$1, 37, 8, 934);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h1, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_1.name,
+    		type: "else",
+    		source: "(37:4) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (23:4) {#if winners.length > 0}
+    function create_if_block$1(ctx) {
+    	let t0;
+    	let hr0;
+    	let t1;
+    	let textarea;
+    	let t2;
+    	let hr1;
+    	let t3;
+    	let h2;
+    	let t5;
+    	let h3;
+    	let t6;
+
+    	function select_block_type_1(ctx, dirty) {
+    		if (/*winners*/ ctx[1].length === 1) return create_if_block_1$1;
+    		return create_else_block;
+    	}
+
+    	let current_block_type = select_block_type_1(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			t0 = space();
+    			hr0 = element("hr");
+    			t1 = space();
+    			textarea = element("textarea");
+    			t2 = space();
+    			hr1 = element("hr");
+    			t3 = space();
+    			h2 = element("h2");
+    			h2.textContent = "Valor final do prêmio:";
+    			t5 = space();
+    			h3 = element("h3");
+    			t6 = text(/*prize*/ ctx[2]);
+    			add_location(hr0, file$1, 28, 8, 705);
+    			attr_dev(textarea, "cols", "30");
+    			attr_dev(textarea, "rows", "10");
+    			textarea.value = "" + /*getWinnersText*/ ctx[3]() + "            \r\n        ";
+    			add_location(textarea, file$1, 29, 8, 719);
+    			add_location(hr1, file$1, 33, 8, 840);
+    			add_location(h2, file$1, 34, 8, 854);
+    			add_location(h3, file$1, 35, 8, 895);
+    		},
+    		m: function mount(target, anchor) {
+    			if_block.m(target, anchor);
+    			insert_dev(target, t0, anchor);
+    			insert_dev(target, hr0, anchor);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, textarea, anchor);
+    			insert_dev(target, t2, anchor);
+    			insert_dev(target, hr1, anchor);
+    			insert_dev(target, t3, anchor);
+    			insert_dev(target, h2, anchor);
+    			insert_dev(target, t5, anchor);
+    			insert_dev(target, h3, anchor);
+    			append_dev(h3, t6);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (current_block_type !== (current_block_type = select_block_type_1(ctx))) {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(t0.parentNode, t0);
+    				}
+    			}
+
+    			if (dirty & /*prize*/ 4) set_data_dev(t6, /*prize*/ ctx[2]);
+    		},
+    		d: function destroy(detaching) {
+    			if_block.d(detaching);
+    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(hr0);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(textarea);
+    			if (detaching) detach_dev(t2);
+    			if (detaching) detach_dev(hr1);
+    			if (detaching) detach_dev(t3);
+    			if (detaching) detach_dev(h2);
+    			if (detaching) detach_dev(t5);
+    			if (detaching) detach_dev(h3);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(23:4) {#if winners.length > 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (26:4) {:else}
+    function create_else_block(ctx) {
+    	let h1;
+
+    	const block = {
+    		c: function create() {
+    			h1 = element("h1");
+    			h1.textContent = "Vencedores:";
+    			add_location(h1, file$1, 26, 8, 664);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h1, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block.name,
+    		type: "else",
+    		source: "(26:4) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (24:4) {#if winners.length === 1}
+    function create_if_block_1$1(ctx) {
+    	let h1;
+
+    	const block = {
+    		c: function create() {
+    			h1 = element("h1");
+    			h1.textContent = "Vencedor:";
+    			add_location(h1, file$1, 24, 8, 621);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, h1, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(h1);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$1.name,
+    		type: "if",
+    		source: "(24:4) {#if winners.length === 1}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     function create_fragment$1(ctx) {
     	let div;
-    	let h1;
-    	let t1;
-    	let hr;
-    	let t2;
-    	let h3;
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*winners*/ ctx[1].length > 0) return create_if_block$1;
+    		return create_else_block_1;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block = current_block_type(ctx);
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			h1 = element("h1");
-    			h1.textContent = "Vencedores:";
-    			t1 = space();
-    			hr = element("hr");
-    			t2 = space();
-    			h3 = element("h3");
-    			h3.textContent = `${/*getWinnersText*/ ctx[1]()}`;
-    			add_location(h1, file$1, 21, 4, 518);
-    			add_location(hr, file$1, 22, 4, 544);
-    			add_location(h3, file$1, 23, 4, 554);
+    			if_block.c();
     			attr_dev(div, "class", "svelte-v3dv70");
     			toggle_class(div, "dark", /*darkMode*/ ctx[0]);
-    			add_location(div, file$1, 20, 0, 485);
+    			add_location(div, file$1, 21, 0, 522);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
-    			append_dev(div, h1);
-    			append_dev(div, t1);
-    			append_dev(div, hr);
-    			append_dev(div, t2);
-    			append_dev(div, h3);
+    			if_block.m(div, null);
     		},
     		p: function update(ctx, [dirty]) {
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(div, null);
+    				}
+    			}
+
     			if (dirty & /*darkMode*/ 1) {
     				toggle_class(div, "dark", /*darkMode*/ ctx[0]);
     			}
@@ -2217,6 +2406,7 @@ var app = (function () {
     		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
+    			if_block.d();
     		}
     	};
 
@@ -2237,6 +2427,7 @@ var app = (function () {
     	let { darkMode } = $$props;
     	let { allBets = new Set() } = $$props;
     	let { winners = [] } = $$props;
+    	let { prize } = $$props;
 
     	const getWinnersText = () => {
     		let aux = "";
@@ -2244,8 +2435,8 @@ var app = (function () {
     		for (let i = 0; i < winners.length; i++) {
     			let currBet = allBets[winners[i]];
     			aux += "ID da aposta: " + currBet.id;
-    			aux += "Nome do participante: " + currBet.name;
-    			aux += "Números apostados: " + currBet.bet;
+    			aux += "\nNome do participante: " + currBet.name;
+    			aux += "\nNúmeros apostados: " + currBet.bet + "\n";
     		}
 
     		return aux;
@@ -2255,9 +2446,13 @@ var app = (function () {
     		if (darkMode === undefined && !('darkMode' in $$props || $$self.$$.bound[$$self.$$.props['darkMode']])) {
     			console.warn("<Winners> was created without expected prop 'darkMode'");
     		}
+
+    		if (prize === undefined && !('prize' in $$props || $$self.$$.bound[$$self.$$.props['prize']])) {
+    			console.warn("<Winners> was created without expected prop 'prize'");
+    		}
     	});
 
-    	const writable_props = ['darkMode', 'allBets', 'winners'];
+    	const writable_props = ['darkMode', 'allBets', 'winners', 'prize'];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Winners> was created with unknown prop '${key}'`);
@@ -2265,34 +2460,43 @@ var app = (function () {
 
     	$$self.$$set = $$props => {
     		if ('darkMode' in $$props) $$invalidate(0, darkMode = $$props.darkMode);
-    		if ('allBets' in $$props) $$invalidate(2, allBets = $$props.allBets);
-    		if ('winners' in $$props) $$invalidate(3, winners = $$props.winners);
+    		if ('allBets' in $$props) $$invalidate(4, allBets = $$props.allBets);
+    		if ('winners' in $$props) $$invalidate(1, winners = $$props.winners);
+    		if ('prize' in $$props) $$invalidate(2, prize = $$props.prize);
     	};
 
     	$$self.$capture_state = () => ({
     		darkMode,
     		allBets,
     		winners,
+    		prize,
     		getWinnersText
     	});
 
     	$$self.$inject_state = $$props => {
     		if ('darkMode' in $$props) $$invalidate(0, darkMode = $$props.darkMode);
-    		if ('allBets' in $$props) $$invalidate(2, allBets = $$props.allBets);
-    		if ('winners' in $$props) $$invalidate(3, winners = $$props.winners);
+    		if ('allBets' in $$props) $$invalidate(4, allBets = $$props.allBets);
+    		if ('winners' in $$props) $$invalidate(1, winners = $$props.winners);
+    		if ('prize' in $$props) $$invalidate(2, prize = $$props.prize);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [darkMode, getWinnersText, allBets, winners];
+    	return [darkMode, winners, prize, getWinnersText, allBets];
     }
 
     class Winners extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { darkMode: 0, allBets: 2, winners: 3 });
+
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, {
+    			darkMode: 0,
+    			allBets: 4,
+    			winners: 1,
+    			prize: 2
+    		});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -2323,6 +2527,14 @@ var app = (function () {
     	}
 
     	set winners(value) {
+    		throw new Error("<Winners>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get prize() {
+    		throw new Error("<Winners>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set prize(value) {
     		throw new Error("<Winners>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -3057,7 +3269,8 @@ var app = (function () {
     			props: {
     				darkMode: /*darkMode*/ ctx[6],
     				winners: /*winners*/ ctx[4],
-    				allBets: /*allBets*/ ctx[2]
+    				allBets: /*allBets*/ ctx[2],
+    				prize: /*prize*/ ctx[7]
     			},
     			$$inline: true
     		});
@@ -3114,7 +3327,7 @@ var app = (function () {
     			button.textContent = "Iniciar apostas";
     			attr_dev(button, "class", "svelte-cfsnx6");
     			toggle_class(button, "dark", /*darkMode*/ ctx[6]);
-    			add_location(button, file, 139, 3, 2747);
+    			add_location(button, file, 139, 3, 2756);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -3164,10 +3377,10 @@ var app = (function () {
     			button1.textContent = "Adicionar participantes fantasma";
     			attr_dev(button0, "class", "svelte-cfsnx6");
     			toggle_class(button0, "dark", /*darkMode*/ ctx[6]);
-    			add_location(button0, file, 142, 3, 2874);
+    			add_location(button0, file, 142, 3, 2883);
     			attr_dev(button1, "class", "svelte-cfsnx6");
     			toggle_class(button1, "dark", /*darkMode*/ ctx[6]);
-    			add_location(button1, file, 143, 3, 2965);
+    			add_location(button1, file, 143, 3, 2974);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button0, anchor);
@@ -3224,7 +3437,7 @@ var app = (function () {
     			button.textContent = "Iniciar Sorteio";
     			attr_dev(button, "class", "svelte-cfsnx6");
     			toggle_class(button, "dark", /*darkMode*/ ctx[6]);
-    			add_location(button, file, 146, 3, 3124);
+    			add_location(button, file, 146, 3, 3133);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -3320,9 +3533,9 @@ var app = (function () {
     			add_location(div0, file, 96, 1, 1739);
     			attr_dev(button, "class", "svelte-cfsnx6");
     			toggle_class(button, "dark", /*darkMode*/ ctx[6]);
-    			add_location(button, file, 137, 2, 2628);
+    			add_location(button, file, 137, 2, 2637);
     			attr_dev(div1, "class", "buttons svelte-cfsnx6");
-    			add_location(div1, file, 136, 1, 2604);
+    			add_location(div1, file, 136, 1, 2613);
     			attr_dev(main, "class", "backGround svelte-cfsnx6");
     			toggle_class(main, "dark", /*darkMode*/ ctx[6]);
     			add_location(main, file, 90, 0, 1585);

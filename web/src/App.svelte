@@ -128,7 +128,7 @@
 
 		{#if currStage === "winners"}
 			<Box {darkMode}>
-				<Winners {darkMode} {winners} {allBets}/>
+				<Winners {darkMode} {winners} {allBets} {prize} />
 			</Box>
 		{/if}
 		

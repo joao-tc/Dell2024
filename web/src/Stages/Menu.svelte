@@ -1,7 +1,7 @@
 <script>
     export let darkMode;
 
-    let text = "Etapa1: Apostas\nOs participantes podem fazer quantas apostas quiserem;\nOs números podem ser escolhidos manualmente ou de forma aleatória.\n\nEtapa 2: Apuração\n"
+    let text = "Etapa1: Apostas\nAs apostas são estritamente de 5 números;\nOs números podem ser escolhidos manualmente ou de forma aleatória;\nOs participantes podem fazer quantas apostas quiserem.\n\nEtapa 2: Apuração\n"
 </script>
 
 <div class="box">
@@ -26,6 +26,10 @@
         resize: none;
         background: white;
         border-color: white;
+    }
+
+    textarea::-webkit-scrollbar {
+        background: black;
     }
 
     .dark {

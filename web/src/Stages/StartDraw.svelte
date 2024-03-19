@@ -65,7 +65,7 @@
             drawNewNum();
             drawnNums = getDrawnNums();
             turn+=1;
-            prize *= 1.2;
+            prize = prize * 1.2;
         }
     };
 
@@ -112,6 +112,7 @@
 
     button {
         margin-top: 10px;
+        border-radius: 10px;
     }
 
     h2 {
