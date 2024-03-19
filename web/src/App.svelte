@@ -22,7 +22,7 @@
 	let currStage = "menu";
 
 	let darkMode = true;
-
+/*
 	const createMostBetted = () => {
 		let aux = []
 
@@ -32,7 +32,7 @@
 	}
 
 	let mostBetted = createMostBetted();
-
+*/
 	const newRandomBet = () => {
 		let currBet = new Set();
 
@@ -109,6 +109,7 @@
 		}
 	}
 
+/*
 	const getMostBettedNum = () => {
 		let mostBettedTups = [];
 		for(let i = 0; i < 5; i++) {
@@ -128,7 +129,7 @@
 
 		return mostBettedTups;
 	};
-
+*/
 </script>
 
 
