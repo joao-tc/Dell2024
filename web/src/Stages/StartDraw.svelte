@@ -21,7 +21,14 @@
     };
 
     const handleHasWinner = () => {
-        dispatch('winnersList', winners)
+        dispatch('winnersList', winners);
+
+        const winInfo = {
+            turn,
+            prize
+        };
+
+        dispatch('winnersInfo', winInfo);
     };
 
     const checkForWinner = () => {
