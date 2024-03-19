@@ -9,11 +9,7 @@
     let n1, n2, n3, n4, n5;
 
     const handleSubmit = () => {
-        currBet.add(n1);
-        currBet.add(n2);
-        currBet.add(n3);
-        currBet.add(n4);
-        currBet.add(n5);
+        currBet = new Set([n1, n2, n3, n4, n5]);
 
         if(currBet.size < 5) {
             alert("Deve-se escolher 5 números diferentes")

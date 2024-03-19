@@ -31,18 +31,27 @@
 
             hasWinner = true;
 
-            let currBet = allBets[1000+i];
-            currBet = currBet.bet;
+            let currBet = new Set();
+            currBet = allBets[1000+i].bet;
+            const setIter = currBet.values();
 
             for(let j = 0; j < 5; j++) {
-                if(!draw.has(currBet[j])) {
+                let currNum = setIter.next().value;
+                try {
+                    if(draw.has(currNum) == false){}
+                } catch (error) {
                     hasWinner = false;
+                    break;
                 }
+                
             }
 
             if(hasWinner == true) {
                 winners.push(1000+i);
+                break;
             }
+
+            console.log("Verificando participante", i);
         }
 
         if(hasWinner == true || turn >= 25) {
@@ -68,8 +77,6 @@
     };
 
     drawnNums = getDrawnNums();
-
-    console.log(allBets);
 
 </script>
 

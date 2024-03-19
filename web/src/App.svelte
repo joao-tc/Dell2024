@@ -4,6 +4,10 @@
 	import ManualBet from './Stages/ManualBet.svelte';
 	import Menu from './Stages/Menu.svelte';
 	import StartDraw from './Stages/StartDraw.svelte';
+	import Modal from './Component/Modal.svelte';
+	import AddGhost from './AddGhost.svelte';
+
+	let showModal = false;
 
 	let generalId = 1000;
 	let allBets = new Set();
@@ -11,10 +15,9 @@
 
 	let prize = 2535;
 
-	let currStage = "menu";
+	let currStage = "bet";
 
 	let darkMode = true;
-
 
 	const newRandomBet = () => {
 		let currBet = new Set();
@@ -48,7 +51,7 @@
 	const manualBet = (e) => {
 		let aux = allBets[generalId];
 
-		aux.bet = e.detail.currBet;
+		aux.bet = e.detail;
 		generalId++;
 		nBet++;
 		currStage = "betDone";
@@ -60,9 +63,34 @@
 		nBet = 0;
 	};
 
+	const addGhost = (n) => {
+		showModal = false;
+
+		let phName = "Name";
+		let phCpf = "CPF";
+		for(let i = 0; i < n.detail; i++) {
+			allBets[generalId] = {
+				name: phName+(generalId-1000),
+				cpf: phCpf+(generalId-1000),
+				betType: "auto",
+				bet: newRandomBet(),
+				id: generalId
+			};
+			generalId++;
+			nBet++;
+		}
+	}
+
 </script>
 
+
+
 <main class="backGround" class:dark={darkMode}>
+	{#if showModal}
+		<Modal {darkMode}>
+			<AddGhost {darkMode} on:addGhost={addGhost}/>
+		</Modal>
+	{/if}
 	<div class="mainDiv">
 		{#if currStage === "menu"}
 			<Box {darkMode}>
@@ -94,6 +122,7 @@
 				<StartDraw {darkMode} {prize} {allBets} {nBet} draw={newRandomBet()} on:winnersList={handleWinners}/>
 			</Box>
 		{/if}
+		
 	</div>
 	
 	<div>
@@ -103,6 +132,7 @@
 		{/if}
 		{#if currStage === "bet"}
 			<button on:click={()=>{currStage="menu"}} class:dark={darkMode}>Voltar ao menu</button>
+			<button on:click|once={()=>showModal=true} class:dark={darkMode}>Adicionar participantes fantasma</button>
 		{/if}
 		{#if nBet > 0 && currStage !== "draw"}
 			<button on:click|once={()=>{currStage="draw"}} class:dark={darkMode}>Iniciar Sorteio</button>

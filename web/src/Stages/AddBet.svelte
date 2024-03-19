@@ -45,6 +45,7 @@
 
     hr {
         margin: 10px auto;
+        margin-bottom: 20px;
     }
 
     h2 {
@@ -52,7 +53,7 @@
     }
 
     select {
-        margin-top: 5px;
+        margin: 10px auto;
     }
 
 </style>
