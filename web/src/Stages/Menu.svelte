@@ -11,7 +11,7 @@
     <hr>
 
     <div class="text">
-        <textarea cols="37" rows="10" class:dark={darkMode} disabled>
+        <textarea cols="30" rows="10" class:dark={darkMode} disabled>
 {text}
         </textarea>
     </div>
@@ -29,7 +29,13 @@
     }
 
     textarea::-webkit-scrollbar {
-        background: black;
+        background: rgba(0, 0, 0, 0);
+        width: 3px;
+    }
+
+    textarea::-webkit-scrollbar-thumb {
+        background: rgba(100, 100, 100, 0.5);
+        border-radius: 5px;
     }
 
     .dark {

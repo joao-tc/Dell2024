@@ -27,7 +27,7 @@
         <h1>Vencedores:</h1>
     {/if}
         <hr>
-        <textarea cols="30" rows="10">
+        <textarea cols="30" rows="10" class:dark={darkMode}>
 {getWinnersText()}            
         </textarea>
         <!-- <h4></h4> -->
@@ -42,9 +42,26 @@
 
 <style>
 
+    textarea {
+        resize: none;
+        background: white;
+        border-color: white;
+    }
+
+    textarea::-webkit-scrollbar {
+        background: rgba(0, 0, 0, 0);
+        width: 3px;
+    }
+
+    textarea::-webkit-scrollbar-thumb {
+        background: rgba(100, 100, 100, 0.5);
+        border-radius: 5px;
+    }
+
     .dark {
         background: black;
         color: white;
+        border-color: black;
     }
 
 </style>
