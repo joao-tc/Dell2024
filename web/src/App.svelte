@@ -144,7 +144,7 @@
 	<div class="buttons">
 		<button on:click={handleDarkMode} class:dark={darkMode}>Dark Mode: {darkMode}</button>
 		{#if currStage === "menu" || currStage === "list"}
-			<button on:click={()=>{currStage="bet"}} class:dark={darkMode}>Iniciar apostas</button>
+			<button on:click={()=>{currStage="bet"}} class:dark={darkMode}>Apostar</button>
 		{/if}
 
 		{#if currStage === "bet"}

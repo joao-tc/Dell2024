@@ -1,7 +1,7 @@
 <script>
     export let darkMode;
 
-    let text = "Etapa1: Apostas\nAs apostas são estritamente de 5 números;\nOs números podem ser escolhidos manualmente ou de forma aleatória;\nOs participantes podem fazer quantas apostas quiserem.\n\nEtapa 2: Apuração\n"
+    let text = "Etapa1: Apostas\nAs apostas são estritamente de 5 números;\nOs números podem ser escolhidos manualmente ou de forma aleatória;\nOs participantes podem fazer quantas apostas quiserem.\n\nEtapa 2: Apuração\nSão inicialmente sorteados 5 números;\nCaso nenhum participante tenha acertado os números, mais um número será sorteado;\nEsse processo se repete até algum participante ter seus números sorteados, ou ao chegar no turno 25.\n\nEtapa 3: premiação\nO valor do prêmio se inicia em 2535 reais e aumenta a cada turno de apuração;\nO valor então será distribuído paro o(s) vencedor(es);\nCaso ninguém acerte os números, não haverá premiação."
 </script>
 
 <div class="box">

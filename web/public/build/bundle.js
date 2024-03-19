@@ -1347,20 +1347,20 @@ var app = (function () {
     			div0 = element("div");
     			textarea = element("textarea");
     			attr_dev(h1, "class", "svelte-1bwokaz");
-    			add_location(h1, file$6, 7, 4, 298);
-    			add_location(h2, file$6, 8, 4, 331);
-    			add_location(hr, file$6, 10, 4, 362);
+    			add_location(h1, file$6, 7, 4, 732);
+    			add_location(h2, file$6, 8, 4, 765);
+    			add_location(hr, file$6, 10, 4, 796);
     			attr_dev(textarea, "cols", "37");
     			attr_dev(textarea, "rows", "10");
     			textarea.disabled = true;
     			textarea.value = "" + /*text*/ ctx[1] + "\r\n        ";
     			attr_dev(textarea, "class", "svelte-1bwokaz");
     			toggle_class(textarea, "dark", /*darkMode*/ ctx[0]);
-    			add_location(textarea, file$6, 13, 8, 402);
+    			add_location(textarea, file$6, 13, 8, 836);
     			attr_dev(div0, "class", "text svelte-1bwokaz");
-    			add_location(div0, file$6, 12, 4, 374);
+    			add_location(div0, file$6, 12, 4, 808);
     			attr_dev(div1, "class", "box svelte-1bwokaz");
-    			add_location(div1, file$6, 6, 0, 275);
+    			add_location(div1, file$6, 6, 0, 709);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1403,7 +1403,7 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Menu', slots, []);
     	let { darkMode } = $$props;
-    	let text = "Etapa1: Apostas\nAs apostas são estritamente de 5 números;\nOs números podem ser escolhidos manualmente ou de forma aleatória;\nOs participantes podem fazer quantas apostas quiserem.\n\nEtapa 2: Apuração\n";
+    	let text = "Etapa1: Apostas\nAs apostas são estritamente de 5 números;\nOs números podem ser escolhidos manualmente ou de forma aleatória;\nOs participantes podem fazer quantas apostas quiserem.\n\nEtapa 2: Apuração\nSão inicialmente sorteados 5 números;\nCaso nenhum participante tenha acertado os números, mais um número será sorteado;\nEsse processo se repete até algum participante ter seus números sorteados, ou ao chegar no turno 25.\n\nEtapa 3: premiação\nO valor do prêmio se inicia em 2535 reais e aumenta a cada turno de apuração;\nO valor então será distribuído paro o(s) vencedor(es);\nCaso ninguém acerte os números, não haverá premiação.";
 
     	$$self.$$.on_mount.push(function () {
     		if (darkMode === undefined && !('darkMode' in $$props || $$self.$$.bound[$$self.$$.props['darkMode']])) {
@@ -3641,7 +3641,7 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			button = element("button");
-    			button.textContent = "Iniciar apostas";
+    			button.textContent = "Apostar";
     			attr_dev(button, "class", "svelte-cfsnx6");
     			toggle_class(button, "dark", /*darkMode*/ ctx[6]);
     			add_location(button, file, 146, 3, 2952);
@@ -3694,10 +3694,10 @@ var app = (function () {
     			button1.textContent = "Adicionar participantes fantasma";
     			attr_dev(button0, "class", "svelte-cfsnx6");
     			toggle_class(button0, "dark", /*darkMode*/ ctx[6]);
-    			add_location(button0, file, 150, 3, 3080);
+    			add_location(button0, file, 150, 3, 3072);
     			attr_dev(button1, "class", "svelte-cfsnx6");
     			toggle_class(button1, "dark", /*darkMode*/ ctx[6]);
-    			add_location(button1, file, 151, 3, 3171);
+    			add_location(button1, file, 151, 3, 3163);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button0, anchor);
@@ -3754,7 +3754,7 @@ var app = (function () {
     			button.textContent = "Ver apostas";
     			attr_dev(button, "class", "svelte-cfsnx6");
     			toggle_class(button, "dark", /*darkMode*/ ctx[6]);
-    			add_location(button, file, 155, 3, 3355);
+    			add_location(button, file, 155, 3, 3347);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
@@ -3799,7 +3799,7 @@ var app = (function () {
     			button.textContent = "Iniciar Sorteio";
     			attr_dev(button, "class", "svelte-cfsnx6");
     			toggle_class(button, "dark", /*darkMode*/ ctx[6]);
-    			add_location(button, file, 159, 3, 3493);
+    			add_location(button, file, 159, 3, 3485);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, button, anchor);
