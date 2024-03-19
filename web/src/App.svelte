@@ -6,6 +6,7 @@
 	import StartDraw from './Stages/StartDraw.svelte';
 	import Modal from './Component/Modal.svelte';
 	import AddGhost from './AddGhost.svelte';
+	import Winners from './Stages/Winners.svelte';
 
 	let showModal = false;
 
@@ -14,6 +15,7 @@
 	let nBet = 0;
 
 	let prize = 2535;
+	let winners = [];
 
 	let currStage = "bet";
 
@@ -59,6 +61,7 @@
 	};
 
 	const handleWinners = (e) => {
+		winners = e.detail;
 		currStage = "winners";
 		nBet = 0;
 	};
@@ -122,11 +125,17 @@
 				<StartDraw {darkMode} {prize} {allBets} {nBet} draw={newRandomBet()} on:winnersList={handleWinners}/>
 			</Box>
 		{/if}
+
+		{#if currStage === "winners"}
+			<Box {darkMode}>
+				<Winners {darkMode} {winners} {allBets}/>
+			</Box>
+		{/if}
 		
 	</div>
 	
-	<div>
-		<button on:click={handleDarkMode} class:dark={darkMode} class="darkButton">Dark Mode: {darkMode}</button>
+	<div class="buttons">
+		<button on:click={handleDarkMode} class:dark={darkMode}>Dark Mode: {darkMode}</button>
 		{#if currStage === "menu"}
 			<button on:click={()=>{currStage="bet"}} class:dark={darkMode}>Iniciar apostas</button>
 		{/if}
@@ -157,13 +166,17 @@
 		color: gray;
 	}
 
-	.darkButton {
+	button {
 		margin-left: 2em;
 	}
 
 	.dark {
 		background: #1e1e1e;
 		color: white;
+	}
+
+	.buttons {
+		display: inline-block;
 	}
 
 </style>

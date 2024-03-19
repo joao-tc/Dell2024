@@ -38,12 +38,15 @@
             for(let j = 0; j < 5; j++) {
                 let currNum = setIter.next().value;
                 try {
-                    if(draw.has(currNum) == false){}
+                    if(draw.has(currNum) == false){
+                        hasWinner = false;
+                        break;
+                    }
                 } catch (error) {
                     hasWinner = false;
                     break;
                 }
-                
+
             }
 
             if(hasWinner == true) {
@@ -51,7 +54,7 @@
                 break;
             }
 
-            console.log("Verificando participante", i);
+            //console.log("Verificando participante", i);
         }
 
         if(hasWinner == true || turn >= 25) {
