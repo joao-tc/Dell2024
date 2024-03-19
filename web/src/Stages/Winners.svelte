@@ -3,6 +3,7 @@
     export let allBets = new Set();
     export let winners = [];
     export let prize;
+    export let turn;
 
     const getWinnersText = () => {
         let aux = "";
@@ -43,8 +44,9 @@
 {getWinnersText()}            
         </textarea>
         <hr>
+        <h3>Após {turn} turnos:</h3>
         <h2>Valor final do prêmio:</h2>
-        <h3>{prize}</h3>
+        <h3>{prize.toFixed(2)} reais</h3>
     {:else}
         <h1>Não houveram vencedores</h1>
     {/if}
@@ -52,6 +54,10 @@
 </div>
 
 <style>
+
+    h2 {
+        margin-top: -1em;
+    }
 
     textarea {
         resize: none;

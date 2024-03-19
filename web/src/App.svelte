@@ -17,6 +17,7 @@
 
 	let prize = 2535;
 	let winners = [];
+	let turn;
 
 	let currStage = "menu";
 
@@ -65,6 +66,12 @@
 		winners = e.detail;
 		currStage = "winners";
 		nBet = 0;
+	};
+
+	const handleWinnersInfo = (e) => {
+		turn = e.detail.turn;
+		prize = e.detail.prize;
+		console.log(turn, prize);
 	};
 
 	const addGhost = (n) => {
@@ -129,13 +136,13 @@
 
 		{#if currStage === "draw"}
 			<Box {darkMode}>
-				<StartDraw {darkMode} {prize} {allBets} {nBet} draw={newRandomBet()} on:winnersList={handleWinners}/>
+				<StartDraw {darkMode} {prize} {allBets} {nBet} draw={newRandomBet()} on:winnersList={handleWinners} on:winnersInfo={handleWinnersInfo}/>
 			</Box>
 		{/if}
 
 		{#if currStage === "winners"}
 			<Box {darkMode}>
-				<Winners {darkMode} {winners} {allBets} {prize} />
+				<Winners {darkMode} {winners} {allBets} {prize} {turn} />
 			</Box>
 		{/if}
 		
